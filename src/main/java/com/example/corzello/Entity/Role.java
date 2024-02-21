@@ -1,28 +1,21 @@
 package com.example.corzello.Entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
-
+@Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Data
 @Table(name="roles")
 public class Role
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long Id;
 
-    @Column(nullable=false, unique=true)
     private String name;
-
-    @ManyToMany(mappedBy="roles")
-    private List<UserEntity> users;
 }
